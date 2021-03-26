@@ -17,7 +17,7 @@ public class Bolletje
     vel = v;
     col = c;
     parent = par;
-    dpos = new PVector(0,0);
+    dpos = new PVector(0, 0);
   }
 
   void draw()

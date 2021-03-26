@@ -7,6 +7,6 @@ void stars(int amount)
     x = random(0, 1500);
     y = random(0, 1000);
     fill(255);
-    point(x,y);
+    point(x, y);
   }
 }
