@@ -1,6 +1,6 @@
 float sunR,sunM = 2000,
-      earthR,earthM=1200,
-      moonR,moonM=5,
+      earthR,earthM=1000,
+      moonR,moonM=10,
       G = 0.1,
       time = 0, timeStep = 0.1;
 PVector sunPos,earthPos,earthV,moonPos,moonV;
@@ -16,9 +16,9 @@ void setup()
   earthPos = new PVector(size/2 + 250, size/2 + 250);
   earthR = 30;
   earthV = new PVector(10,-10);
-  moonPos = new PVector(size/2 + 270, size/2 + 270);
+  moonPos = new PVector(size/2 + 300, size/2 + 300);
   moonR = 10;
-  moonV = new PVector(20,-20);
+  moonV = new PVector(4,-4);
 }
 
 
