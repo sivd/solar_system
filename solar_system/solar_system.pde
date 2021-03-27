@@ -14,6 +14,8 @@ Bolletje sun;
 Light[]lights = new Light[1];
 Circle[] circles = new Circle[12];
 
+Lock lock = new Lock();
+
 void setup()
 {
   frameRate(60);
@@ -23,7 +25,7 @@ void setup()
   sun = new Bolletje("sun", 75.0, 2000.0, new PVector(width/2, width/2), null, color(250, 200, 50), null);
   bolletjes = new ArrayList<Bolletje>();
   //bolletjes.add(sun);
-  lights[0] = (new Light(new PVector(width/2, width/2), new PVector(0.5,0.5,0), 8000.0));
+  lights[0] = (new Light(new PVector(width/2, width/2), new PVector(0.5,0.5,0), 10000.0));
   
   bolletjes.add(new Bolletje("mercury", 15.0, 100.0, new PVector(width/2 - 50, width/2 - 50), new PVector(-10, 10), color(100, 100, 100), sun));
   circles[0] = (new Circle(new PVector(width/2 - 50, width/2 - 50), new PVector(0.5,0.5,1), 7.5));
@@ -31,7 +33,7 @@ void setup()
   bolletjes.add(new Bolletje("venus", 20.0, 200.0, new PVector(width/2 - 100, width/2 - 100), new PVector(-10, 10), color(230, 180, 100), sun));
   circles[1] = (new Circle(new PVector(width/2 - 100, width/2 - 100), new PVector(0.5,0.5,1), 10.0));
   
-  Bolletje earth = new Bolletje("earth", 20.0, 600.0, new PVector(width/2 + 160, width/2 + 160), new PVector(10, -10), color(50, 150, 250), sun);
+  Bolletje earth = new Bolletje("earth", 20.0, 700.0, new PVector(width/2 + 160, width/2 + 160), new PVector(10, -10), color(50, 150, 250), sun);
   bolletjes.add(earth);
   circles[2] = (new Circle(new PVector(width/2 + 160, width/2 + 160), new PVector(0.5,0.5,1), 10.0));
   
@@ -71,17 +73,16 @@ void draw()
   fill(0, 10);
   rect(0, 0, width, height);
   //background(0);
-  strokeWeight(2);
+  //strokeWeight(2);
   
-  rayTracer();
+  thread("rayTracer");
+  //rayTracer();
   
-  //bolletjes.get(0).draw();
-  //bolletjes.get(0).update();
-  //circles[0] = (new Circle(bolletjes.get(0).pos, new PVector(0.5,0.5,1), 30.0));
+  //sun.draw();
 
-  for (int i = 0; i < bolletjes.size()-5; i++)
+  for (int i = 0; i < bolletjes.size(); i++)
   {
-    //bolletjes.get(i).draw();
+    bolletjes.get(i).draw();
     bolletjes.get(i).update();
     circles[i] = (new Circle(bolletjes.get(i).pos, new PVector(0.5,0.5,1), bolletjes.get(i).radius));
   }
