@@ -50,7 +50,9 @@ void rayTracer()
           pixelC.z += (l.colour.z / ray.dist * l.strength) * bgC.z;
         }
       }
+      lock.lock();
       set(x, y, color(pixelC.x, pixelC.y, pixelC.z));
+      lock.unlock();
     }
   }
 }

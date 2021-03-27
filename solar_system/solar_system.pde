@@ -3,7 +3,7 @@ float sunR, sunM,
   moonR, moonM, 
   mercR, mercM, 
   G = 0.1, 
-  time = 0, timeStep = 0.2;
+  time = 0, timeStep = 0.1;
 PVector sunPos, sunV, 
   earthPos, earthV, 
   moonPos, moonV, 
@@ -19,7 +19,7 @@ Lock lock = new Lock();
 void setup()
 {
   frameRate(60);
-  size(600, 600);
+  size(300, 300);
   background(0);
 
   sun = new Bolletje("sun", 75.0, 2000.0, new PVector(width/2, width/2), null, color(250, 200, 50), null);
@@ -71,7 +71,7 @@ void setup()
 void draw()
 {
   fill(0, 10);
-  rect(0, 0, width, height);
+  //rect(0, 0, width, height);
   //background(0);
   //strokeWeight(2);
   
@@ -82,7 +82,7 @@ void draw()
 
   for (int i = 0; i < bolletjes.size(); i++)
   {
-    bolletjes.get(i).draw();
+    //bolletjes.get(i).draw();
     bolletjes.get(i).update();
     circles[i] = (new Circle(bolletjes.get(i).pos, new PVector(0.5,0.5,1), bolletjes.get(i).radius));
   }
