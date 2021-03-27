@@ -5,7 +5,11 @@ class Lock
   void lock()
   {
     if(!locked) locked = true; 
-    else lock();
+    else 
+    {
+      delay(100);
+      lock();
+    }
   }
   
   void unlock()

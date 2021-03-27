@@ -24,13 +24,13 @@ void rayTracer()
 
       for (int i = 0; i < circles.length; i++)
       {
-        if (!lock.locked)
-        {
+        //if (!lock.locked)
+        //{
           lock.lock();
           if (PVector.dist(ray.origin, circles[i].position) < circles[i].radius)
             bgC = circles[i].colour;
           lock.unlock();
-        }
+        //}
       }
       for (int j = 0; j < lights.length; j++)
       {
